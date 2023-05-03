@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <span>Login System</span>
+            <div class="links">
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section-login">
+        <div class="container">
+            <form action="#" id="form-login">
+                <div class="form-group">
+                    <label for="#">E-mail</label>
+                    <input id="inputEmail" type="email" name="email" />
+                </div>
+                <div class="form-group">
+                    <label for="#">Password</label>
+                    <input id="inputPassword" required type="password" name="password" />
+                </div>
+                <div class="button-group"> 
+                    <input required class="btn btn-color" type="submit" value="Entrar" />
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 500px;">
+        <div class="container">
+            <button id="btnExemplo" class="btn btn-dark">Switch the site color</button>
+        </div>
+    </section>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        var listaDeFuncionarios = [{
+    email: "emailum@mail.com",
+    password: "123",
+    name: "Joãozinho",
+    phone_number: "(55) 99939-3993",
+    role: "Desenvolvedor"
+}, {
+    email: "emaildois@mail.com",
+    password: "123",
+    name: "Mariazinha",
+    phone_number: "(53) 92329-3993",
+    role: "Gerente"
+}, {
+    email: "emailtres@mail.com",
+    password: "123",
+    name: "Terezinha",
+    phone_number: "(23) 88379-3993",
+    role: "Estagiário"
+}, ];
+
+function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
+
+    var usuarioValido = listaDeFuncionarios.find(function(funcionario, posicaoNaLista) {
+        return 
+            funcionario.email == emailDigitadoNoFormulario && 
+            funcionario.password == senhaDigitadaNoFormulario;
+    })
+
+    if (usuarioValido) {
+        alert("Bem vindo, Usuário foi encontrado");
+    } else {
+        alert("Usuário não encontrado!");
+    }
+}
+
+$(document).ready(function() {            
+
+$("#form-login").submit(function(event) {
+
+    event.preventDefault();
+
+    var emailDigitado = $("#inputEmail").val();
+
+    var senhaDigitada = $("#inputPassword").val();
+
+    fazerLogin(emailDigitado, senhaDigitada);
+    
+})
+
+})
+    </script>
+
+</body>
+</html>
