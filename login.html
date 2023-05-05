@@ -70,9 +70,9 @@
 function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
 
     var usuarioValido = listaDeFuncionarios.find(function(funcionario, posicaoNaLista) {
-        return 
+        return (
             funcionario.email == emailDigitadoNoFormulario && 
-            funcionario.password == senhaDigitadaNoFormulario;
+            funcionario.password == senhaDigitadaNoFormulario);
     })
 
     if (usuarioValido) {
