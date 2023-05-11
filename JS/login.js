@@ -21,9 +21,9 @@ var listaDeFuncionarios = [{
 function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
 
     var usuarioValido = listaDeFuncionarios.find(function(funcionario, posicaoNaLista) {
-        return 
+        return (
             funcionario.email == emailDigitadoNoFormulario && 
-            funcionario.password == senhaDigitadaNoFormulario;
+            funcionario.password == senhaDigitadaNoFormulario);
     })
 
     if (usuarioValido) {
@@ -32,6 +32,12 @@ function fazerLogin(emailDigitadoNoFormulario, senhaDigitadaNoFormulario) {
         alert("Usuário não encontrado!");
     }
 }
+
+function salvarUsuario(usuario){
+    localStorage.setItem('usuarioLogado', 'objeto do usuario logado')
+}
+
+salvarUsuario('dsadsda');
 
 $(document).ready(function() {            
 
